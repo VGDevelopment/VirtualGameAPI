@@ -1,6 +1,8 @@
 # VirtualGameAPI
 A fast, secure, and innovative processing VIRION library based API to use for game handling on multiple servers. Licensed under MIT.
 
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="G34YTKEPC6R3U"> <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>
+
 ## DOCUMENTATION
 
 While our effort to make this API as easy to use has been going on, there are still some cases where stuff gets complicated. Sadly, we can't do anything about that other than try to assist you in the best possible manner! We provide official support for it via email : support@vgpe.me .
@@ -112,3 +114,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+**NOTE : VirtualGameAPI is not affiliated with PocketMine-MP (PMMP or any other abbreviation), Poggit, or Mojang AB (Microsoft or any other related entity).**
