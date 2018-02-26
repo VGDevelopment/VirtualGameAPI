@@ -1,13 +1,31 @@
-# VirtualGameAPI
+# VirtualGameAPI - NOT READY FOR USAGE YET
 A fast, secure, and innovative processing based API to use for game handling on multiple servers. Licensed under MIT.
 
 Like using it? Support VirtualGalaxy by donating a bit to allow us to bring more innovative stuff for you! Your donations are used on maintaining our continuing projects and the creating future ones.
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G34YTKEPC6R3U)
 
+Support? Email us! - support@vgpe.me
+
+## ISSUES
+
+Had an issue using the API? Think it should provide something more than it does now? Let us know! **PLEASE NOTE: ISSUES AREN'T SUPPORT. THAT IS PROVIDED via EMAIL.**
+
+Using the github issue panel, please submit an issue/suggestion regarding your point. Explain in as much detail as possible. 
+
+If you had an error code popup as well, please make the error code your title. In the description of the issue, explain how it occured and any other output in the console. Furthermore, if you think you have fixed the issue yourself - be nice enough to submit a PR (pull request - [Contribution Guidelines](https://github.com/VGDevelopment/VirtualGameAPI#contribution)) so it's fixed for everyone! We're all in this together!
+
+If you just received some console output which you don't have an idea about, have your title be the very 1st sentence of the output (without the directory names).
+
+For suggestions, consider setting the title as a 1-5 word summary of the suggestion and explain it in as much possible detail in the description.
+
+The following people are managing issues:
+
+- [@TheRoyalBlock](https://github.com/TheRoyalBlock) - AvgZing (Community Collaborator)
+
 ## DOCUMENTATION
 
-While our effort to make this API as easy to use has been going on, there are still some cases where stuff gets complicated. Sadly, we can't do anything about that other than try to assist you in the best possible manner! We provide official support for it via email : support@vgpe.me .
+While our effort to make this API as easy to use has been going on, there are still some cases where stuff gets complicated. Sadly, we can't do anything about that other than try to assist you in the best possible manner!
 
 - Directory Listing :
 
