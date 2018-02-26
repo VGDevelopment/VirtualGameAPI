@@ -35,7 +35,7 @@ class API {
      * @param PluginBase $os
      * @return void
      */
-    public static function start(PluginBase $os): void {
+    public static function start(self $os): void {
         self::$os = $os;
         self::$server = $os->getServer();
         Database::start(self::IMPORT_CONNECTION);
@@ -46,7 +46,7 @@ class API {
      *
      * @return PluginBase
      */
-    public static function getOS(): PluginBase {
+    public static function getOS(): self {
         return self::$os;
     }
     

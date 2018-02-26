@@ -8,6 +8,14 @@ You cannot however remove this commented in citation of the authorship of the fi
 
 namespace VirtualGameAPI\network;
 
+use VirtualGameAPI\util\{
+    ErrorHandler
+};
+
+use VirtualGameAPI\game\{
+    GameManager
+};
+// >>>
 use mysqli;
 
 class Database {
@@ -33,9 +41,10 @@ class Database {
     public static function start(bool $import = false): void {
         if ($import === true) {
             self::importDB();
-            return;
+        } else {
+            self::createConnection();
         }
-        self::createConnection();
+        self::createTable();
         return;
     }
 
@@ -77,6 +86,31 @@ class Database {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Creates the required table(s) for managing the games on multiple servers.
+     *
+     * @return boolean
+     */
+    private static function createTable(): bool {
+        if (self::$db === null || self::$db->connect_error === true) {
+            ErrorHandler::callError(ErrorHandler::ERROR_DB_ISSUE);
+            return false;
+        }
+        $query = self::$db->query("CREATE TABLE IF NOT EXISTS users(
+            ip VARCHAR(15),
+            gameid CHAR(" . (string)GameManager::ID_LENGHT . "),
+            totalp INT,
+            ratiop CHAR(5),
+            running INT(1),
+            result VARCHAR(16)
+            );");
+        if ($query === false) {
+            ErrorHandler::callError(ErrorHandler::ERROR_DB_ISSUE);
+            return false;
+        }
+        return true;
     }
 
 }

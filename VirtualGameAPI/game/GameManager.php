@@ -19,11 +19,16 @@ use VirtualGameAPI\util\{
     ErrorHandler
 };
 
+use VirtualGameAPI\network\{
+    GameServer,
+    Database
+};
+
 class GameManager implements GamePointer {
 
     const CHAR_RAND = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const ID_LENGHT = 10;
 
-    private static $api;
     private static $db;
     private static $gameruntimelist = [];
     private static $gameinstancelist = [];
@@ -35,8 +40,8 @@ class GameManager implements GamePointer {
      * @param API $api
      * @return void
      */
-    public static function start(API $api): void {
-        self::$api = $api;
+    public static function start(): void {
+        self::$db = Database::getDB();
     }
 
     /**
@@ -130,7 +135,7 @@ class GameManager implements GamePointer {
     private static function generateGameID(int $type = self::UNKNOWN): string {
         $lenght = strlen(self::CHAR_RAND);
         $id = "";
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < self::ID_LENGHT; $i++) {
             $k = $lenght - 1;
             $rand = mt_rand(0, $k);
             $id .= self::CHAR_RAND[$rand];

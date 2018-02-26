@@ -20,8 +20,8 @@ class ErrorHandler {
     const ERROR_0X01 = [
         "reason" => "Sorry, there was an error setting the max player and min player values.",
         "cause" => [
-            "The max player value is less than the min player value",
-            "The min player value is greater than the max player value"
+            "The max player value is less than the min player value.",
+            "The min player value is greater than the max player value."
         ]
     ];
 
@@ -32,14 +32,25 @@ class ErrorHandler {
         ]
     ];
 
+    const ERROR_0X03 = [
+        "reason" => "Sorry, an operation to the database failed.",
+        "cause" => [
+            "The credentials aren't correct. Please recheck.",
+            "The database didn't respond correctly.",
+            "The connection failed. May be due to some traffic or database denying requests."
+        ]
+    ];
+
     const ERROR_UNKNOWN = 0x00;
     const ERROR_MINP_MAXP = 0x01;
     const ERROR_GAME_NO_EXIST = 0x02;
+    const ERROR_DB_ISSUE = 0x03;
 
     const ERROR_INT_TO_ARRAY = [
         self::ERROR_UNKNOWN => self::ERROR_0X00,
-        self::ERROR_MINP_MAXP => self::ERROR_0x01,
-        self::ERROR_GAME_NO_EXIST => self::ERROR_0X02
+        self::ERROR_MINP_MAXP => self::ERROR_0X01,
+        self::ERROR_GAME_NO_EXIST => self::ERROR_0X02,
+        self::ERROR_DB_ISSUE => self::ERROR_0X03
     ];
 
     public static function callError(int $errorcode = self::ERROR_UNKNOWN): bool {
@@ -56,6 +67,7 @@ class ErrorHandler {
             $c = implode("\n", $error["cause"]);
         }
         $logger->critical($r);
+        $logger->crticial("Error Code: " . (string)$errorcode);
         if ($c !== null) {
             $logger->critical("Possible cause(s):");
             $logger->critical($c);

@@ -1,5 +1,7 @@
 # VirtualGameAPI
-A fast, secure, and innovative processing VIRION library based API to use for game handling on multiple servers. Licensed under MIT.
+A fast, secure, and innovative processing based API to use for game handling on multiple servers. Licensed under MIT.
+
+Like using it? Support VirtualGalaxy by donating a bit to allow us to bring more innovative stuff for you! Your donations are used on maintaining our continuing projects and the creating future ones.
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G34YTKEPC6R3U)
 
@@ -7,11 +9,27 @@ A fast, secure, and innovative processing VIRION library based API to use for ga
 
 While our effort to make this API as easy to use has been going on, there are still some cases where stuff gets complicated. Sadly, we can't do anything about that other than try to assist you in the best possible manner! We provide official support for it via email : support@vgpe.me .
 
+- Directory Listing :
+
+```yaml
+VirtualGameAPI:
+    API
+    game:
+        GameManager
+        GamePointer
+    network:
+        Database
+        GameServer
+    util:
+        Converter
+        ErrorHandler
+```
+
 - Pre-required Stuff :
     
     Here is some stuff you need to have before this API will work properly. **NOTE : Some of these pre-required stuff have their own pre-required needs. Yes, what a drag!**
     
-    - More than one working PMMP installation connected with the public internet. We support the 3.0.0-ALPHA10 API as of now. [Recommended is multiple servers]
+    - More than one working PMMP installation connected with the public internet. We support the 3.0.0-ALPHA11 API as of now. [Recommended is multiple servers]
         - PMMP : https://github.com/pmmp/PocketMine-MP
     - A working MySQL DB installed on either your private/public machine which is connected with the public internet.
         - https://www.mysql.com/
@@ -22,29 +40,28 @@ While our effort to make this API as easy to use has been going on, there are st
 
 - Installation :
     
-    Installing the VirtualGameAPI is pretty easy by either using Poggit or if you want to, doing it manually (Poggit is easier)!
+    Installing the VirtualGameAPI is simplistic. Here are the shipped packages. You can also `git clone` it, however, we don't recommend that unless you know what you're doing.
     
-    - Poggit : https://poggit.pmmp.io/
-    - Installation Docs (with Poggit) : https://github.com/poggit/support/blob/master/virion.md#compiling-a-virion-user-with-poggit
-    - Installation Docs (without Poggit) : https://github.com/poggit/support/blob/master/virion.md#compiling-a-virion-user-without-poggit
+    - SAFE : 
+    - LATEST :
 
-- Configuration : 
+    Download and add directly into your **src** folder.
+
+- Configuration : (please read Directory Listing before doing this)
     
     So you got through the tough part of this system, 'installation'! However, there is still some stuff left (you will need to do most stuff manually as there isn't a custom installer... yet).
     
-    First we need to set the database connection. Go to the **"network"** directory instead the **"src\VirtualGameAPI"** and either add the class to import from or the database details.
+    First we need to set the database connection. Go to the **Database.php** object and either add the class to import from or input database details.
 
-    - Enter the details of your host (database IP or domain), username you want the API to use, password for that username, and finally the name of the database you want us to check.
+- Usage : (please read Directory Listing before doing this)
 
-- Usage :
-
-    Here are some things you need to do. In your plugins, please use the API object in the main class. Then in the **"onEnable()"** method (also abbreviated as function), add the following code.
+    Here are some things you need to do. In your plugins, please use the **API.php** object in the main class. Then in the **"onEnable()"** method (also abbreviated as function), add the following code.
     ```php
     API::start($this);
     ```
     Good job!
 
-    Next thing we need to do is create our first game! Make sure you are using the GameManager object. Located in the **"game"** directory. Over there, you need to run the method like so : 
+    Next thing we need to do is create our first game! Make sure you are using the **GameManager.php** object. Over there, you need to run the method like so : 
     ```php
     $time = [
         "ps" => 5, // time b4 game
@@ -55,9 +72,9 @@ While our effort to make this API as easy to use has been going on, there are st
     GameManager::makeGame(GameManager::GAME_CONST, 15, $time, "MyWorld", 8);
     ```
     Now that we've created our first game. Let's set up the appropriate servers for it so when we run it, we know which server it should teleport the players to. Currently VirtualGameAPI officially supports a list of multiple games, with their own game constants.
-    You can view this list in the following interface, **"src\VirtualGameAPI\game\GamePointer"**.
+    You can view this list in the following interface, **GamePointer.php**.
 
-    Anyhow, make your way to the GamePointer interface located in the **"game"** directory. Inside you'll find a constant "GAME_TO_SERVER". In the constant, please add your servers in the following format.
+    Anyhow, make your way to the **GamePointer.php** interface. Inside you'll find a constant "GAME_TO_SERVER". In the constant, please add your servers in the following format.
     ```php
     const GAME_TO_SERVER = [
         self::GAME_CONST => [
